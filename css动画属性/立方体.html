@@ -1,0 +1,116 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+
+	body{background: black;
+		perspective: 1200px;
+
+		}
+
+
+
+	/*给正方体添加一个动画  让它一直旋转*/
+	@keyframes rotate {
+			from{
+				transform: rotate3d(1,1,0,0deg);
+			}
+
+			to{
+				transform: rotate3d(1,1,0,360deg);
+			}
+	}
+	.container{
+		position: relative;
+		width:400px;
+		height:400px;
+		background:rgba(255,200,200,0.4);
+		margin:200px 200px;
+
+		/*子元素要想产生立体效果  给父元素添加这句话*/
+		transform-style: preserve-3d;
+		transition: all 2s;
+
+		/*设置动画的格式*/
+		animation:rotate 2s linear 2s  infinite ;
+
+
+	}
+
+
+		.box{
+			position: absolute;
+			left:0;
+			top:0;
+			right:0;
+			bottom:0;
+			margin:auto;
+			width:300px;
+			height:300px;
+			display: none;
+
+		}
+
+		.box:nth-of-type(1){
+			display: block;
+			background: rgba(255,100,10,0.7);
+			transform:translateZ(150px)
+		}
+
+	.box:nth-of-type(2){
+		display: block;
+		background: rgba(10,200,100,0.7);
+		transform:translateZ(-150px)
+	}
+	.box:nth-of-type(3){
+		display: block;
+		background: rgba(100,0,0,0.7);
+		transform:rotateY(90deg) translateZ(-150px)
+	}
+
+        .box:nth-of-type(4){
+            display: block;
+            background: rgba(120,220,50,0.7);
+            transform:rotateY(90deg) translateZ(150px)
+        }
+
+            .box:nth-of-type(5){
+                display: block;
+                background: rgba(200,180,130,0.7);
+                transform:rotateX(90deg) translateZ(-150px)
+            }
+
+                .box:nth-of-type(6){
+                    display: block;
+                    background: rgba(0,200,0,0.7);
+                    transform:rotateX(90deg) translateZ(150px)
+                }
+
+
+
+
+
+	</style>
+
+</head>
+<body>
+
+	<div class="container">
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+		<div class="box"></div>
+
+	</div>
+	<script>
+
+
+
+	</script>
+</body>
+</html>

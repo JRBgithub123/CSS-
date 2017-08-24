@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title></title>
+
+	<style>
+
+
+		.box{
+			position: relative;
+			width:400px;
+			height:400px;
+			border-radius: 50%;
+			border:1px solid blue;
+			margin:100px auto;
+			background: -webkit-linear-gradient(left,#fff 0,#fff 200px,#000 200px,#000 400px);
+
+			}
+
+		.box:before{
+			content:'';
+			position: absolute;
+			left:100px;
+			width:200px;
+			height:200px;
+			background: #fff;
+			border-radius: 50%;
+			box-sizing: border-box;
+			border:60px solid #000;
+
+		}
+
+
+		.box:after{
+			content:'';
+			position: absolute;
+			left:100px;
+			top:200px;
+			width:200px;
+			height:200px;
+			background: #000;
+			border-radius: 50%;
+			box-sizing: border-box;
+			border:60px solid #fff;
+		}
+
+		
+
+	</style>
+
+</head>
+<body>
+
+	<div class="box">
+
+	</div>
+	
+	<script>
+
+	</script>
+</body>
+</html>

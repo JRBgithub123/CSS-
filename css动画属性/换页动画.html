@@ -1,0 +1,129 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		@keyframes pageOut{
+			from {}
+			to {transform:translateX(-100%);}
+		}
+		@keyframes pageInRight{
+			from {transform:translateX(100%);}
+		}
+		@keyframes pageInTop{
+			from {transform:translateY(-100%);}
+		}
+		@keyframes pageInBottom{
+			from {transform:translateY(100%);}
+		}
+		@keyframes pageInRight{
+			from {transform:scale(0);}
+		}
+		@keyframes pageInSR{
+			from {transform:scale(0) rotate(-360deg);}
+		}
+		@keyframes pageInOpacity{
+			from {opacity: 0}
+		}
+		@keyframes pageInRotate{
+			from {transform:rotateX(-180deg);}
+		}
+
+		html,body{
+			height:100%;
+			width:100%;
+			margin:0;
+			overflow: hidden;
+		}
+		.page.pageInSR{
+			animation-name:pageInSR;
+		}
+		.page.pageInOpacity{
+			animation-name:pageInOpacity;
+		}
+		.page.pageInRotate		{
+			animation-name:pageInRotate		;
+		}
+		.page.pageOut{
+			animation-name:pageOut;
+		}
+		.page.pageInRight{
+			animation-name:pageInRight;
+		}
+		.page.pageInTop{
+			animation-name:pageInTop;
+		}
+		.page.pageInBottom{
+			animation-name:pageInBottom;
+		}
+		.page.pageInRight{
+			animation-name:pageInRight;
+		}
+		.page{
+			position: absolute;
+			height:100%;
+			width:100%;
+			display: none;
+			animation-duration:.5s;
+			animation-timing-function:ease-in;
+			animation-fill-mode:forwards;
+		}
+
+		.page:nth-child(1){
+			display: block;
+			background: red;
+		}
+		.page:nth-child(2){
+			background: blue;
+		}
+		.page:nth-child(3){
+			background: green;
+		}
+		.page:nth-child(4){
+			background: pink;
+		}
+		.page:nth-child(5){
+			background: yellow;
+		}
+	</style>
+</head>
+<body>
+	<div class="page">
+		<h1>page 1</h1>
+	</div>
+	<div class="page">
+		<h1>page 2</h1>
+	</div>
+	<div class="page">
+		<h1>page 3</h1>
+	</div>
+	<div class="page">
+		<h1>page 4</h1>
+	</div>
+	<div class="page">
+		<h1>page 5</h1>
+	</div>
+
+	<script>
+		var pages = document.querySelectorAll(".page");
+		var currentIndex = 0;
+		var anims = [
+		"pageInRight",
+		"pageInBottom",
+		"pageInTop",
+		"pageInSR",
+		"pageInOpacity",
+		"pageInRotate"		];
+		[].forEach.call(pages,function(page,i){
+			page.onclick = function(){
+				this.className = "page pageOut";
+				var nextPage = pages[(i+1)%pages.length];
+				nextPage.style.display = "block";
+				nextPage.className = 
+				"page "+anims[parseInt(Math.random()*6)];
+			}
+		});
+	</script>
+</body>
+</html>
